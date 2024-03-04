@@ -1,0 +1,36 @@
+.header {
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 15px;
+
+}
+.light {
+    border: 5px solid #16164f;
+    backdrop-filter: blur(40px);
+    box-shadow: 0 0 5px 10px #f5f5f8;
+    color: black;
+}
+.light a{
+    color: black;
+}
+.light a:hover{
+    background-color: rgb(57, 58, 75);
+}
+.dark {
+    background-color: rgb(56, 58, 75);
+    backdrop-filter: blur(40px);
+    color: white;
+}
+.dark a{
+    color: white;
+}
+.header a{
+    transition: padding 1s ease, background-color 1s ease;
+    text-decoration: none;
+    font-size: 30px;
+    font-variant-caps: all-petite-caps ;
+}
+.header a:hover{
+    padding: 0 2%;
+}

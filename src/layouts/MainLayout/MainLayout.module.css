@@ -1,0 +1,11 @@
+.black {
+    background-image: url("../../../../mini-react-project/public/Background.svg");
+}
+.white{
+    background-image: url("../../../../mini-react-project/public/BackgroundWhite.svg");
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 60px;
+}

@@ -1,0 +1,6 @@
+export * from './Header/Header'
+export * from './MovieContainer/MoviesListCards/MoviesListCards'
+export * from './MovieContainer/MoviesListCard/MoviesListCard'
+export * from './MovieContainer/MoviesList/MoviesList'
+export * from './PosterPreview/PosterPreview'
+export * from './StarsRating/StarsRating'
