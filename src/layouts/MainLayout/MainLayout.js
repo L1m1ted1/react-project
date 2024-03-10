@@ -8,6 +8,7 @@ const MainLayout = () => {
 
     let {trigger} = useAppContext();
 
+
     return (
         <div className={trigger ? style.black : style.white}>
             <div className={style.container}>

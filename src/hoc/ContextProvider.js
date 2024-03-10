@@ -10,8 +10,6 @@ const ContextProvider = ({children}) => {
         setTrigger(prev => !prev)
     }
 
-    console.log(trigger)
-
     return (
         <Context.Provider value={{trigger, switcher}}>
             {children}

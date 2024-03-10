@@ -5,6 +5,7 @@ import {MoviesPage} from "./pages/MoviesPage/MoviesPage";
 import {GenresPage} from "./pages/GenresPage";
 import {MovieInfoPage} from "./pages/MovieInfoPage/MovieInfoPage";
 import movieService from "./services/movieService";
+import {MoviesList, SearchComponents} from "./components";
 
 const router =  createBrowserRouter([
     {
@@ -13,7 +14,19 @@ const router =  createBrowserRouter([
                 index: true, element: <Navigate to={'movies'}/>
             },
             {
-                path: 'movies', element: <MoviesPage/>
+                path: 'movies', element: <MoviesPage/>, children: [
+                    {
+                        path: '', element: <MoviesList/>
+                    },
+                    {
+                        path: 'search/:query', element: <SearchComponents/>, children:[
+
+                        ]
+                    },
+                    {
+                        path: ':id', element: <MovieInfoPage/>, loader: ({params: {id}}) => movieService.getById(id)
+                    }
+                ]
             },
             {
                 path: 'details/:id', element: <MovieInfoPage/>, loader: ({params: {id}}) => movieService.getById(id)

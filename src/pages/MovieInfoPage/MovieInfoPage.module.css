@@ -17,19 +17,18 @@
 .light{
     color: #050510;
 }
-
-
 .poster img{
+    height: 400px;
     width: 100%;
     background-position: center;
-    border-radius: 80px;
+    border-radius: 50px;
+    object-fit: cover;
 }
 .poster{
     width: 80%;
-    margin: 40px auto 0 auto;
+    margin: 80px auto 0 auto;
     overflow: hidden;
     position: relative;
-
 }
 .avatar img{
     width: 30%;

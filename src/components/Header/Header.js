@@ -10,15 +10,18 @@ const Header = () => {
 
 
     return (
-        <div className={`${style.header} + ${trigger?style.dark:style.light}`}>
-
-            <NavLink to={''}>
-                <img src='/logo.svg' alt="Logo"/>
-                MovieHub
-            </NavLink>
-            <NavLink to={'genres'}>Genres</NavLink>
-            <button onClick={() => switcher()}>Switch theme</button>
-            <UserInfo/>
+        <div className={`${style.header} + ${trigger ? style.dark : style.light}`}>
+            <div className={style.logo}>
+                <NavLink to={''}>
+                    <img src='/logo.svg' alt="Logo"/>
+                    <h4>MovieHub</h4>
+                </NavLink>
+            </div>
+            <div className={style.navBar}>
+                <NavLink to={'genres'}><h6>Genres</h6></NavLink>
+                <button onClick={() => switcher()}>Switch theme</button>
+                <UserInfo/>
+            </div>
         </div>
     );
 };

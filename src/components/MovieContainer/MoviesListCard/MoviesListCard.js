@@ -4,17 +4,17 @@ import style from './MoviesListCard.module.css'
 import {NavLink, useNavigate} from "react-router-dom";
 import useAppContext from "../../../hooks/useAppContext";
 
-const MoviesListCard = ({movie}) => {
+const MoviesListCard = ({movie, total_pages}) => {
     
-    const {id,  backdrop_path, original_title, poster_path, vote_average, overview, genre_ids} = movie;
+    const {id, original_title, poster_path, vote_average} = movie;
 
     const {trigger} = useAppContext();
 
     return (
         <div className={`${style.block} + ${trigger?style.dark:style.light}`}>
-            <NavLink to={`/details/${id}`}>
+            <NavLink to={total_pages ? `/movies/${id}` : `/details/${id}`}>
                 <PosterPreview poster_path={poster_path} title={original_title}/>
-                <StarsRating/>
+                <StarsRating rating={vote_average}/>
                 <h3>{original_title}</h3>
             </NavLink>
         </div>
