@@ -1,13 +1,12 @@
-import {Header} from "../../components";
+import useAppContext from "../../hooks/useAppContext";
 import style from './MainLayout.module.css'
+import {Header} from "../../components";
 
 import {Outlet} from "react-router-dom";
-import useAppContext from "../../hooks/useAppContext";
 
 const MainLayout = () => {
 
     let {trigger} = useAppContext();
-
 
     return (
         <div className={trigger ? style.black : style.white}>

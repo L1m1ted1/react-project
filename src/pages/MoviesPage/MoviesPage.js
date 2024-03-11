@@ -1,9 +1,8 @@
-import {MoviesList} from "../../components";
-import style from './MoviesPage.module.css'
-import useAppContext from "../../hooks/useAppContext";
 import {useState} from "react";
 import {Navigate, Outlet, useNavigate} from "react-router-dom";
-;
+
+import useAppContext from "../../hooks/useAppContext";
+import style from './MoviesPage.module.css'
 
 const MoviesPage = () => {
 
@@ -20,21 +19,17 @@ const MoviesPage = () => {
 
     const {value} = search
 
-
     return (
         <div>
             <div className={`${style.searchBar} + ${trigger ? style.dark : style.light}`}>
                 <h1>MOVIES</h1>
-                <p>Шукайте свої улюблені фільми</p>
+                <p>Search for your favorite movies</p>
                 <div className={style.search}>
                     <input type="text" placeholder={'Search Movies'} name={'value'} onChange={confirm}/>
-                    {/*<button>Search</button>*/}
                 </div>
             </div>
-            {search.value ? <Navigate to={`search/${search.value}`}/> : <Navigate to={''}/>}
+            {value ? <Navigate to={`search/${search.value}`}/> : <Navigate to={''}/>}
             <Outlet/>
-            {/*{search.value ? <SearchComponents search={search.value}/> :  <MoviesList/>}*/}
-
         </div>
     );
 };

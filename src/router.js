@@ -1,15 +1,14 @@
 import {createBrowserRouter, Navigate} from "react-router-dom";
-import {MainLayout} from "./layouts";
-import {ErrorPage} from "./pages";
-import {MoviesPage} from "./pages/MoviesPage/MoviesPage";
-import {GenresPage} from "./pages/GenresPage";
-import {MovieInfoPage} from "./pages/MovieInfoPage/MovieInfoPage";
-import movieService from "./services/movieService";
-import {MoviesList, SearchComponents} from "./components";
 
-const router =  createBrowserRouter([
+import {ErrorPage, GenresPage, MovieInfoPage, MoviesPage} from "./pages";
+import {MoviesList, SearchComponents} from "./components";
+import {MainLayout} from "./layouts";
+import movieService from "./services/movieService";
+
+
+const router = createBrowserRouter([
     {
-        path: '', element: <MainLayout/>, errorElement: <ErrorPage/> , children: [
+        path: '', element: <MainLayout/>, errorElement: <ErrorPage/>, children: [
             {
                 index: true, element: <Navigate to={'movies'}/>
             },
@@ -19,9 +18,7 @@ const router =  createBrowserRouter([
                         path: '', element: <MoviesList/>
                     },
                     {
-                        path: 'search/:query', element: <SearchComponents/>, children:[
-
-                        ]
+                        path: 'search/:query', element: <SearchComponents/>
                     },
                     {
                         path: ':id', element: <MovieInfoPage/>, loader: ({params: {id}}) => movieService.getById(id)
@@ -30,13 +27,12 @@ const router =  createBrowserRouter([
             },
             {
                 path: 'details/:id', element: <MovieInfoPage/>, loader: ({params: {id}}) => movieService.getById(id)
-
             },
             {
                 path: 'genres', element: <GenresPage/>
             }
         ]
     }
-])
+]);
 
 export default router

@@ -1,8 +1,10 @@
 import {PosterPreview} from "../../PosterPreview/PosterPreview";
 import {StarsRating} from "../../StarsRating/StarsRating";
-import style from './MoviesListCard.module.css'
-import {NavLink, useNavigate} from "react-router-dom";
 import useAppContext from "../../../hooks/useAppContext";
+import style from './MoviesListCard.module.css'
+
+import {NavLink} from "react-router-dom";
+
 
 const MoviesListCard = ({movie, total_pages}) => {
     
@@ -11,7 +13,7 @@ const MoviesListCard = ({movie, total_pages}) => {
     const {trigger} = useAppContext();
 
     return (
-        <div className={`${style.block} + ${trigger?style.dark:style.light}`}>
+        <div className={`${style.block} + ${trigger ? style.dark : style.light}`}>
             <NavLink to={total_pages ? `/movies/${id}` : `/details/${id}`}>
                 <PosterPreview poster_path={poster_path} title={original_title}/>
                 <StarsRating rating={vote_average}/>

@@ -1,13 +1,14 @@
 import {useLoaderData} from "react-router-dom";
-import {imgURL, urls} from "../../constants";
-import style from './MovieInfoPage.module.css'
+
 import useAppContext from "../../hooks/useAppContext";
+import style from './MovieInfoPage.module.css'
+import {imgURL, urls} from "../../constants";
 
 const MovieInfoPage = () => {
 
     const {data} = useLoaderData();
 
-    const {backdrop_path, poster_path, original_title, overview, vote_average, genres, release_date, spoken_languages} = data
+    const {backdrop_path, poster_path, original_title, overview, genres, release_date, spoken_languages} = data
 
     const {trigger} = useAppContext();
 
@@ -22,13 +23,13 @@ const MovieInfoPage = () => {
             <div className={style.avatar}>
                 <img src={imgURL + urls.img.base(poster_path)} alt="Poster"/>
                 <div className={style.title}>
-                    <h2>Короткий опис</h2>
+                    <h2>Details</h2>
                     <p>{overview}</p>
-                    <h2>Жанри</h2>
+                    <h2>Genres</h2>
                     {genres.map(genre => <p>{genre.name}</p>)}
-                    <h2>Дата релізу</h2>
+                    <h2>Release date</h2>
                     <p>{release_date}</p>
-                    <h2>Мова(и)</h2>
+                    <h2>Languages</h2>
                     {spoken_languages.map(languages => <p>{languages.english_name}</p>)}
                 </div>
             </div>

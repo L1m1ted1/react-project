@@ -1,4 +1,5 @@
 import style from './UserInfo.module.css'
+
 const UserInfo = () => {
     return (
         <div className={style.main}>
