@@ -10,8 +10,6 @@ const MoviesPage = () => {
 
     const {trigger} = useAppContext();
 
-    const navigate = useNavigate();
-
     const confirm = (e) => {
         e.preventDefault()
         setSearch(prev => ({...prev, [e.target.name]: e.target.value}));
